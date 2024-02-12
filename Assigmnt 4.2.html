@@ -1,0 +1,90 @@
+<!-- Created by [Your Name] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f1c40f; /* Yellow background */
+            color: #2c3e50; /* Dark blue text */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Button style */
+        .button {
+            background-color: #e74c3c; /* Red button */
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 20px; /* Oval shape */
+        }
+
+        .button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+        }
+        /* Image style */
+        #image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;}
+    </style>
+</head>
+<body>
+
+    <h1>The Music Awaits </h1>
+    <h2>Click the buttons to play/stop the audio</h2>
+    <h3>I made the song myself enjoy :)</h3>
+
+
+    
+    <!-- Start button -->
+    <button id="startButton" class="button" onclick="startAudio()">Start Audio</button>
+
+    <!-- Stop button -->
+    <button id="stopButton" class="button" onclick="stopAudio()" disabled>Stop Audio</button>
+
+    <!-- Image -->
+    <img id="image" src="image.jpg" alt="Image" width="300">
+
+    <!-- JavaScript code -->
+    <script>
+        var audio; // Variable to hold the audio element
+
+        // Function to play audio
+        function startAudio() {
+            audio = new Audio('chillmoon.wav'); // Replace 'audio.mp3' with your audio file path
+            audio.play(); // Play the audio
+
+            // Disable start button
+            document.getElementById('startButton').disabled = true;
+
+            // Enable stop button
+            document.getElementById('stopButton').disabled = false;
+        }
+
+        // Function to stop audio
+        function stopAudio() {
+            audio.pause(); // Pause the audio
+            audio.currentTime = 0; // Reset audio to the beginning
+
+            // Enable start button
+            document.getElementById('startButton').disabled = false;
+
+            // Disable stop button
+            document.getElementById('stopButton').disabled = true;
+        }
+    </script>
+</body>
+</html>
